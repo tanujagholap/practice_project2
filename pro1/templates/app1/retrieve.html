@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <table border="2px black">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>CAT NAME</th>
+                <th>BREED</th>
+                <th>COLOR</th>
+                <th>WEIGHT</th>
+                <th>GENDER</th>
+                <th colspan="2">ACTION</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for i in form %}
+            <tr>
+                <td>{{ i.id }}</td>
+                <td>{{ i.cat_name }}</td>
+                <td>{{ i.breed }}</td>
+                <td>{{ i.color }}</td>
+                <td>{{ i.weight }}</td>
+                <td>{{ i.gender }}</td>
+                <td>
+                    <a href="{% url 'update_url' i.id %}">
+                        <button>UPDATE</button>
+                    </a>
+                </td>
+                <td>
+                    <a href="{% url 'delete_url' i.id %}">
+                        <button>DELETE</button>
+                    </a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}
