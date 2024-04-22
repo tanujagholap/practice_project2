@@ -33,7 +33,7 @@ def signup_view(request):
         form = UserCreationForm(request.POST)
         if form.is_valid():
             form.save()
-            return HttpResponse('Registration Success')
+            return redirect('login_url')
     return render(request, template_name, context={'form': form})
 
 
